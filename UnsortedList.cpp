@@ -2,11 +2,21 @@
 
 template<class T>
 UnsortedList<T>::UnsortedList() {
-
+    length = 0;
+    head = nullptr;
+    iterPos = nullptr;
 }
 
 template<class T>
 void UnsortedList<T>::MakeEmpty() {
+    while (head != nullptr) {
+        Node *oldHead = head;
+        head = head->next;
+        delete temp;
+    }
+
+    head = nullptr;
+    iterPos = nullptr;
     length = 0;
 }
 

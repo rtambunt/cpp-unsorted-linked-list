@@ -45,7 +45,7 @@ int main()
 	while (command != "Quit")
 	{
 		//cout << "Command: " << command;
-		if (command == "AddItem")
+		if (command == "PutItem")
 		{
 			inFile >> item;
 			//cin >> item;
