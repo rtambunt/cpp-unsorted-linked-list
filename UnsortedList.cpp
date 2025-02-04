@@ -7,27 +7,43 @@ UnsortedList<T>::UnsortedList() {
 
 template<class T>
 void UnsortedList<T>::MakeEmpty() {
-
+    length = 0;
 }
 
 template<class T>
 bool UnsortedList<T>::IsFull() const {
-    return false;
+    return(length);
+    // return false;
 }
 
 template<class T>
 int UnsortedList<T>::GetLength() const {
+    if (length) return length;
     return 0;
 }
 
 template<class T>
 bool UnsortedList<T>::Contains(T someItem) {
+    Node *curNode = head;
+
+    while (curNode != nullptr) {
+        if (curNode->item == someItem) return true;
+
+        curnNode = curNode->next;
+    }
+
     return false;
 }
 
 template<class T>
-void UnsortedList<T>::PutItem(T item) {
+void UnsortedList<T>::AddItem(T item) {
+    Node *insertedNode = new Node;
 
+    insertedNode->data = item;
+    insertedNode->next = head;
+    head = insertedNode;
+
+    length++;
 }
 
 template<class T>
