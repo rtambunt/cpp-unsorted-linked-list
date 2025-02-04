@@ -53,7 +53,13 @@ void UnsortedList<T>::DeleteItem(T item) {
 
     while (curNode != nullptr) {
         if (curNode->item == someItem) {
-            prevNode->next = curNode->next;
+            if (prevNode == nullptr) {
+                head = head->next;
+            } else {
+                prevNode->next = curNode->next;
+            }
+
+
             delete curNode; // Prevent memory leak by freeing up memory from deleted node
             length--;
             break;
