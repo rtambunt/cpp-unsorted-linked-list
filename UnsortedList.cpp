@@ -29,7 +29,7 @@ bool UnsortedList<T>::Contains(T someItem) {
     while (curNode != nullptr) {
         if (curNode->item == someItem) return true;
 
-        curnNode = curNode->next;
+        curNode = curNode->next;
     }
 
     return false;
@@ -48,6 +48,20 @@ void UnsortedList<T>::AddItem(T item) {
 
 template<class T>
 void UnsortedList<T>::DeleteItem(T item) {
+    Node *prevNode = nullptr;
+    Node *curNode = head;
+
+    while (curNode != nullptr) {
+        if (curNode->item == someItem) {
+            prevNode->next = curNode->next;
+            delete curNode; // Prevent memory leak by freeing up memory from deleted node
+            break;
+        }
+
+        // Update tracking nodes
+        prevNode = curNode;
+        curNode = curNode->next;
+    }
 
 }
 
